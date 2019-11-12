@@ -1,9 +1,16 @@
 .topContainer {
+  align-items: center;
   background-color: #303030;
   color: white;
   display: flex;
   font-size: 2em;
   font-family: sans-serif;
-  letter-spacing: 0.25em;
   justify-content: space-between;
+  letter-spacing: 0.25em;
+  padding: 0.5em;
+  padding-right: 2em;
+}
+
+.logo {
+  height: 1.5em;
 }
