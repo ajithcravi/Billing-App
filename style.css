@@ -1,9 +1,13 @@
+.logo {
+  height: 1.5em;
+}
+
 .topContainer {
   align-items: center;
   background-color: #303030;
   color: white;
   display: flex;
-  font-size: 2em;
+  font-size: 3em;
   font-family: sans-serif;
   justify-content: space-between;
   letter-spacing: 0.25em;
@@ -11,6 +15,12 @@
   padding-right: 2em;
 }
 
-.logo {
-  height: 1.5em;
+.shopDetails {
+  font-family: sans-serif;
+  line-height: 1.5em;
+  padding: 0.5em;
+}
+
+.shopMainDetails {
+  font-weight: bolder;
 }
