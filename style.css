@@ -4,7 +4,6 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
 }
 
 .logo {
@@ -23,7 +22,9 @@ body {
   justify-content: space-between;
   letter-spacing: 0.25em;
   padding: 0.5em;
+  position: -webkit-sticky;
   position: sticky;
+  top: 0;
 }
 
 .shopAndCustomerDetails {
@@ -66,6 +67,40 @@ body {
 .billingSection {
   font-size: 1.5em;
   padding: 2em;
+  padding-bottom: 0%;
+}
+
+.addAndDoneButtons {
+  padding: 2em;
+  padding-top: 0%;
+}
+
+.customAddIcon,
+.customDoneIcon {
+  font-size: 3em;
+}
+
+.customAddButton {
+  color: #3c8c30 !important;
+  border-color: #3c8c30 !important;
+  transition: 0.3s !important;
+}
+
+.customAddButton:hover {
+  background-color: #3c8c30 !important;
+  color: white !important;
+  border-color: #3c8c30 !important;
+}
+.customDoneButton {
+  color: #d96704 !important;
+  border-color: #d96704 !important;
+  transition: 0.3s !important;
+}
+
+.customDoneButton:hover {
+  color: white !important;
+  border-color: #d96704 !important;
+  background-color: #d96704 !important;
 }
 
 @media (max-width: 600px) {
