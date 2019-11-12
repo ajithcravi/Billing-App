@@ -27,57 +27,22 @@ body {
   top: 0;
 }
 
-.shopAndCustomerDetails {
+.addAndDoneButtons {
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 2em;
-}
-
-.shopDetails {
-  font-family: sans-serif;
-  line-height: 1.5em;
-  padding: 0.5em;
-}
-
-.customerDetails {
-  font-family: sans-serif;
-  line-height: 1.5em;
-  padding: 0.5em;
-  font-weight: bold;
-}
-
-.detailsTitle {
-  color: #c5c5c5;
-  font-size: 1.5em;
-  font-weight: normal;
-}
-
-.shopMainDetails {
-  font-weight: bolder;
-}
-
-.customisedCard {
-  margin: 2em;
-}
-
-.monetaryValue {
-  text-align: right;
-}
-.billingSection {
-  font-size: 1.5em;
-  padding: 2em;
-  padding-bottom: 0%;
-}
-
-.addAndDoneButtons {
-  padding: 2em;
-  padding-top: 0%;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .customAddIcon,
 .customDoneIcon {
-  font-size: 3em;
+  font-size: 1em;
 }
 
 .customAddButton {
@@ -103,7 +68,59 @@ body {
   background-color: #d96704 !important;
 }
 
-@media (max-width: 600px) {
+.totalAlert {
+  background-color: white;
+  border: 0.1em solid #303030;
+  color: #303030;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  border-radius: 0.25em;
+  padding: 0.5em;
+}
+
+.shopAndCustomerDetails {
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: -1;
+  position: relative;
+}
+
+.shopDetails {
+  font-family: sans-serif;
+  line-height: 1.5em;
+  padding: 0.5em;
+}
+
+.customerDetails {
+  font-family: sans-serif;
+  line-height: 1.5em;
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+.detailsTitle {
+  color: #c5c5c5;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.shopMainDetails {
+  font-weight: bolder;
+}
+
+.monetaryValue {
+  text-align: right;
+}
+
+.billingSection {
+  font-size: 1.5em;
+  padding: 2em;
+  padding-bottom: 3em;
+}
+
+@media (max-width: 675px) {
   .logo {
     height: 1.5em;
     margin-right: 1em;
@@ -131,16 +148,41 @@ body {
     padding: 0.5em;
   }
 
-  .detailsTitle {
-    font-size: 1em;
+  .customAddIcon,
+  .customDoneIcon {
+    font-size: 0.5em;
   }
 
-  .customisedCard {
-    margin: 1em;
+  .detailsTitle {
+    font-size: 1em;
   }
 
   .billingSection {
     padding: 1em;
     font-size: 0.75em;
+  }
+
+  .totalAlert {
+    font-size: 0.75em;
+    border-radius: 0.25em;
+    padding: 0.5em;
+  }
+}
+
+@media print {
+  .topContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+  }
+
+  .addAndDoneButtons {
+    display: none;
+  }
+
+  .billingSection {
+    padding-bottom: 0;
   }
 }
