@@ -13,12 +13,31 @@
   letter-spacing: 0.25em;
   padding: 0.5em;
   padding-right: 2em;
+  position: sticky;
+}
+
+.shopAndCustomerDetails {
+  display: flex;
+  justify-content: space-between;
 }
 
 .shopDetails {
   font-family: sans-serif;
   line-height: 1.5em;
   padding: 0.5em;
+}
+
+.customerDetails {
+  font-family: sans-serif;
+  line-height: 1.5em;
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+.detailsTitle {
+  color: #c5c5c5;
+  font-size: 1.5em;
+  font-weight: normal;
 }
 
 .shopMainDetails {
