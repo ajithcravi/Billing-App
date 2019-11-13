@@ -1,3 +1,4 @@
+/* Root variables */
 :root {
   --billFontSize: 1.5em;
   --paddingAndMargin: 2em;
@@ -7,6 +8,7 @@
   --fontFamily: sans-serif;
 }
 
+/* fixing 100% width and height to the document */
 html,
 body {
   height: 100%;
@@ -15,11 +17,13 @@ body {
   width: 100%;
 }
 
+/* Top band */
+/* logo */
 .logo {
   height: var(--billFontSize);
   margin-right: var(--paddingAndMargin);
 }
-
+/* Band overall style */
 .topContainer {
   align-items: center;
   background-color: var(--darkGrey);
@@ -36,6 +40,52 @@ body {
   top: 0;
 }
 
+/* Shop and customer details section */
+.shopAndCustomerDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2em;
+  position: relative;
+  z-index: -1;
+}
+
+.shopDetails {
+  font-family: var(--fontFamily);
+  line-height: var(--billFontSize);
+  padding: 0.5em;
+}
+
+.customerDetails {
+  font-family: var(--fontFamily);
+  font-weight: bold;
+  line-height: var(--billFontSize);
+  padding: 0.5em;
+}
+
+.detailsTitle {
+  color: #c5c5c5;
+  font-size: var(--billFontSize);
+  font-weight: normal;
+}
+
+.shopMainDetails {
+  font-weight: bolder;
+}
+
+/* Billing table */
+.billingSection {
+  font-size: var(--billFontSize);
+  padding: var(--paddingAndMargin);
+  padding-bottom: 3em;
+}
+
+/* This is to right align monetary values in the table */
+.monetaryValue {
+  text-align: right;
+}
+
+/* Add and Done buttons */
 .addAndDoneButtons {
   align-items: center;
   background-color: white;
@@ -87,48 +137,7 @@ body {
   padding: 0.5em;
 }
 
-.shopAndCustomerDetails {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 2em;
-  position: relative;
-  z-index: -1;
-}
-
-.shopDetails {
-  font-family: var(--fontFamily);
-  line-height: var(--billFontSize);
-  padding: 0.5em;
-}
-
-.customerDetails {
-  font-family: var(--fontFamily);
-  font-weight: bold;
-  line-height: var(--billFontSize);
-  padding: 0.5em;
-}
-
-.detailsTitle {
-  color: #c5c5c5;
-  font-size: var(--billFontSize);
-  font-weight: normal;
-}
-
-.shopMainDetails {
-  font-weight: bolder;
-}
-
-.monetaryValue {
-  text-align: right;
-}
-
-.billingSection {
-  font-size: var(--billFontSize);
-  padding: var(--paddingAndMargin);
-  padding-bottom: 3em;
-}
-
+/* media query for max-width 675px */
 @media (max-width: 675px) {
   .logo {
     height: var(--billFontSize);
@@ -160,6 +169,7 @@ body {
   .customAddIcon,
   .customDoneIcon {
     font-size: 0.5em;
+    margin: 0;
   }
 
   .detailsTitle {
@@ -178,6 +188,7 @@ body {
   }
 }
 
+/* media query for print */
 @media print {
   .topContainer {
     position: relative;
