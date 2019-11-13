@@ -25,9 +25,12 @@ $(".addCustomerForm").submit(function(event) {
   const date = getDate();
 
   //   Execute these steps once the form is submitted
+  //   Remove previously declared divs if available
   $(".customerDetails").remove();
   $(".amountDue").remove();
   $(".addCustomerButton").remove();
+
+  //   Add or update customer details in customer details section
   $(".customerInvoiceDetails").append(`<div class="customerDetails">
   ${date}<br />
   ${customerDetails[0].value}<br />
@@ -52,6 +55,7 @@ $(".addCustomerForm").submit(function(event) {
 </div>`);
 });
 
+// Global functions
 // Get tooday's date function
 getDate = () => {
   const today = new Date();
@@ -61,5 +65,3 @@ getDate = () => {
   const date = today.getDate();
   return `${date} ${month} ${year} - ${day}`;
 };
-
-getDate();
