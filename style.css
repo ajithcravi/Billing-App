@@ -43,7 +43,8 @@ body {
   justify-content: space-between;
   letter-spacing: 0.25em;
   padding: 0.5em;
-  position: fixed;
+  position: -webkit-stickys;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
