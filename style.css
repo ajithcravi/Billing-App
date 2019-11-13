@@ -38,25 +38,26 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: +1;
 }
 
 /* Shop and customer details section */
 .shopAndCustomerDetails {
   display: flex;
   flex-wrap: wrap;
+  /* font-size: var(--billFontSize); */
   justify-content: space-between;
   padding: 2em;
   position: relative;
-  z-index: -1;
 }
 
-.shopDetails {
+.shopDetailsSection {
   font-family: var(--fontFamily);
   line-height: var(--billFontSize);
   padding: 0.5em;
 }
 
-.customerDetails {
+.customerDetailsSection {
   font-family: var(--fontFamily);
   font-weight: bold;
   line-height: var(--billFontSize);
@@ -65,7 +66,6 @@ body {
 
 .detailsTitle {
   color: #c5c5c5;
-  font-size: var(--billFontSize);
   font-weight: normal;
 }
 
@@ -75,7 +75,7 @@ body {
 
 /* Billing table */
 .billingSection {
-  font-size: var(--billFontSize);
+  /* font-size: var(--billFontSize); */
   padding: var(--paddingAndMargin);
   padding-bottom: 3em;
 }
@@ -127,13 +127,25 @@ body {
   color: white !important;
 }
 
+.customCloseButton {
+  border-color: var(--darkGrey) !important;
+  color: var(--darkGrey) !important;
+  transition: 0.3s !important;
+}
+
+.customCloseButton:hover {
+  background-color: var(--darkGrey) !important;
+  border-color: var(--darkGrey) !important;
+  color: white !important;
+}
+
 .totalAlert {
   background-color: white;
   border: 0.1em solid var(--darkGrey);
   border-radius: 0.25em;
   color: var(--darkGrey);
   font-family: sans-serif;
-  font-size: var(--billFontSize);
+  /* font-size: var(--billFontSize); */
   padding: 0.5em;
 }
 
@@ -151,16 +163,17 @@ body {
   }
 
   .shopAndCustomerDetails {
+    font-size: 1em;
     margin: 1em;
   }
 
-  .shopDetails {
+  .shopDetailsSection {
     font-size: 0.75em;
     line-height: var(--billFontSize);
     padding: 0.5em;
   }
 
-  .customerDetails {
+  .customerDetailsSection {
     font-size: 0.75em;
     line-height: var(--billFontSize);
     padding: 0.5em;
@@ -204,4 +217,11 @@ body {
   .billingSection {
     padding-bottom: 0;
   }
+}
+
+/* Turn off spinners for number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
