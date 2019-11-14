@@ -29,6 +29,7 @@ $(".addCustomerForm").submit(function(event) {
   $(".customerDetails").remove();
   $(".amountDue").remove();
   $(".addCustomerButton").remove();
+  $("#startBillingButton").remove();
 
   //   Add or update customer details in customer details section
   $(".customerInvoiceDetails").append(`<div class="customerDetails">
@@ -55,11 +56,9 @@ $(".addCustomerForm").submit(function(event) {
 </div>`);
 });
 
-
-
-
-
-
+$("#startBillingButton").click(() => {
+  $("#navBarButton").trigger("click");
+});
 
 
 
