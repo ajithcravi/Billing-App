@@ -1,3 +1,6 @@
+let serialNo = 0;
+let total = 0;
+
 // Add customer modal code
 $(".customerModal").on("show.bs.modal", function(event) {
   var button = $(event.relatedTarget); // Button that triggered the modal
@@ -79,25 +82,38 @@ $(".addCustomerForm").submit(function(event) {
   </table>`);
 });
 
-$("")
+$(".addItemForm").submit(function(event) {
+  let itemForm = $(this);
+  serialNo += 1;
+  event.preventDefault();
+  let rate = 33;
+  let tax = 18;
 
-$("#startBillingButton").click(() => {
-  $("#navBarButton").trigger("click");
-});
+  //        POST VARIABLES       //
+  let inputItemDetails = itemForm.serializeArray();
 
-$("#addItemButton").on("click", () => {
+  let item = new Item(
+    serialNo,
+    inputItemDetails[0].value,
+    inputItemDetails[1].value,
+    rate,
+    inputItemDetails[2].value,
+    tax
+  );
+  console.log(item);
+  total = Math.round(total + item.price);
+
   $("#totalRow").remove();
-
   $("#bill").append(`
   <tbody>
   <tr>
-    <td scope="row">1</td>
-    <td>Milk</td>
-    <td>500 ml</td>
-    <td class="monetaryValue">26</td>
-    <td class="monetaryValue">2</td>
-    <td class="monetaryValue">0</td>
-    <td class="monetaryValue">52</td>
+    <td scope="row">${item.sNo}</td>
+    <td>${item.name}</td>
+    <td>${item.category}</td>
+    <td class="monetaryValue">${item.rate}</td>
+    <td class="monetaryValue">${item.qty}</td>
+    <td class="monetaryValue">${item.tax}</td>
+    <td class="monetaryValue price">${item.price}</td>
   </tr>
   <tr id="totalRow">
     <td></td>
@@ -106,12 +122,18 @@ $("#addItemButton").on("click", () => {
     <td></td>
     <td></td>
     <th class="monetaryValue" scope="row">Total</th>
-    <th class="monetaryValue">377</th>
+    <th class="monetaryValue">${total}</th>
   </tr>
 </tbody>`);
 });
 
-// Global functions
+$("#startBillingButton").click(() => {
+  $("#navBarButton").trigger("click");
+});
+
+$("#addItemButton").on("click", () => {});
+
+// Global functions and classes
 // Get tooday's date function
 getDate = () => {
   const today = new Date();
@@ -121,3 +143,15 @@ getDate = () => {
   const date = today.getDate();
   return `${date} ${month} ${year} - ${day}`;
 };
+
+class Item {
+  constructor(sNo, name, category, rate, qty, tax) {
+    this.sNo = sNo;
+    this.name = name;
+    this.category = category;
+    this.rate = rate;
+    this.qty = qty;
+    this.tax = tax;
+    this.price = this.rate * this.qty + (this.tax / 100 + this.rate * this.qty);
+  }
+}
