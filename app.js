@@ -15,23 +15,24 @@ $(".itemModal").on("show.bs.modal", function(event) {
 // Get customer details from the add customer form
 $(".addCustomerForm").submit(function(event) {
   event.preventDefault();
-  let form = $(this);
+
+  const date = getDate();
 
   //        POST VARIABLES       //
-  let customerDetails = form.serializeArray();
+  let customerDetails = $(this).serializeArray();
+  //        GET VARIABLES       //
+  let invoiceNo = 1561395;
 
   //Clear input fields of the add customer form
   clearInput();
   //Close modal
   closeModal();
 
-  //        GET VARIABLES       //
-  let invoiceNo = 1561395;
-
-  const date = getDate();
-
   //   Execute these steps once the form is submitted
   //   Remove previously declared divs if available
+  $("#bill").remove();
+  $("#addItemButton").remove();
+  $("#checkOutButton").remove();
   $(".customerDetails").remove();
   $(".amountDue").remove();
   $(".addCustomerButton").remove();
@@ -86,6 +87,7 @@ $(".addCustomerForm").submit(function(event) {
 </button>
 <br />
 <button
+id="checkOutButton"
   type="button"
   class="btn btn-outline-info btn-lg customAddButton"
 >
