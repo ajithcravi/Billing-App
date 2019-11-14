@@ -184,6 +184,13 @@ body {
   padding: 0.5em;
 }
 
+.startBilling {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
 /* media query for max-width 675px */
 @media (max-width: 675px) {
   .logo {
@@ -227,6 +234,10 @@ body {
 
   .detailsTitle {
     font-size: 1em;
+  }
+
+  .startBilling {
+    margin-top: 25%;
   }
 
   .billingSection {
