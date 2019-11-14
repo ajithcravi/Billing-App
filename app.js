@@ -16,8 +16,6 @@ $(".itemModal").on("show.bs.modal", function(event) {
 $(".addCustomerForm").submit(function(event) {
   event.preventDefault();
 
-  const date = getDate();
-
   //        POST VARIABLES       //
   let customerDetails = $(this).serializeArray();
   //        GET VARIABLES       //
@@ -28,39 +26,25 @@ $(".addCustomerForm").submit(function(event) {
   //Close modal
   closeModal();
 
-  //   Execute these steps once the form is submitted
-  //   Remove previously declared divs if available
-  $("#bill").remove();
-  $("#addItemButton").remove();
-  $("#checkOutButton").remove();
-  $(".customerDetails").remove();
-  $(".amountDue").remove();
-  $(".addCustomerButton").remove();
-  $(".startBilling").remove();
+  console.log($("table").length);
 
-  //   Add or update customer details in customer details section
-  $(".customerInvoiceDetails").append(`<div class="customerDetails">
-  ${date}<br />
-  ${customerDetails[0].value}<br />
-  ${customerDetails[1].value}<br />
-  Invoice no: ${invoiceNo}<br /> <br />
-</div>
+  if ($("table").length == false) {
+    //   Execute these steps once the form is submitted
+    //   Remove previously declared divs if available
+    $("#bill").remove();
+    $("#addItemButton").remove();
+    $("#checkoutButton").remove();
+    $(".customerDetails").remove();
+    $(".amountDue").remove();
+    $(".addCustomerButton").remove();
+    $(".startBilling").remove();
+    $(".updateCustomerButton").remove();
 
-<div class="updateCustomerButton">
-  <button
-  type="button"
-  class="btn btn-outline-info btn-lg customDoneButton addCustomerButton"
-  data-toggle="modal"
-  data-target="#exampleModal"
-  data-whatever="@fat"
->
-  Update Customer
-</button>
-</div>`);
+    //   Add customer details in customer details section
+    updateCustomerDetails(customerDetails, invoiceNo);
 
-  $(
-    ".billingSection"
-  ).append(`<table id="bill" class="table table-sm table-hover">
+    $(".billingSection")
+      .append(`<table id="bill" class="table table-sm table-hover">
   <thead class="heading">
     <tr>
       <th scope="col">S.No</th>
@@ -74,7 +58,7 @@ $(".addCustomerForm").submit(function(event) {
   </thead>
   </table>`);
 
-  $(".addItemsOrCheckoutButtons").append(`<button
+    $(".addItemsOrCheckoutButtons").append(`<button
   id="addItemButton"
   type="button"
   class="btn btn-outline-info btn-lg customDoneButton"
@@ -87,13 +71,14 @@ $(".addCustomerForm").submit(function(event) {
 </button>
 <br />
 <button
-id="checkOutButton"
+id="checkoutButton"
   type="button"
   class="btn btn-outline-info btn-lg customAddButton"
 >
   <i class="fas fa-check customDoneIcon"></i>
   Checkout
 </button>`);
+  }
 });
 
 $(".addItemForm").submit(function(event) {
@@ -192,6 +177,32 @@ clearInput = () => {
 // @Example usage         ***** Mention the line where this function is called *****
 closeModal = () => {
   $(".closeModal").trigger("click");
+};
+
+// @Function name         updateCustomerDetails
+// @Description           This function will add customer details to the customer details section
+// @Usage direction       1. Add class 'customerInvoiceDetails' to the division where the customer details hasto be rendered. 2. Call the function
+// @Example usage         ***** Mention the line where this function is called *****
+updateCustomerDetails = (formDetailsArray, invoiceNo) => {
+  const date = getDate();
+  $(".customerInvoiceDetails").append(`<div class="customerDetails">
+  ${date}<br />
+  ${formDetailsArray[0].value}<br />
+  ${formDetailsArray[1].value}<br />
+  Invoice no: ${invoiceNo}<br /> <br />
+  </div>
+
+  <div class="updateCustomerButton">
+  <button
+  type="button"
+  class="btn btn-outline-info btn-lg customDoneButton addCustomerButton"
+  data-toggle="modal"
+  data-target="#exampleModal"
+  data-whatever="@fat"
+  >
+  Update Customer
+  </button>
+  </div>`);
 };
 
 //Class definitions
