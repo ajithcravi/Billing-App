@@ -24,6 +24,70 @@
       </div>
     </div>
 
+    <!-- Add Customer Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="addCustomerForm">
+              <div class="form-group">
+                <label for="customer-name" class="col-form-label">Name:</label>
+                <input
+                  name="customerName"
+                  type="text"
+                  class="form-control customerName"
+                  id="recipient-name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="customer-contactNo" class="col-form-label"
+                  >Contact No:</label
+                >
+                <input
+                  name="customerContactNo"
+                  type="number"
+                  class="form-control customerContactNo"
+                  id="recipient-contact"
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-lg customCloseButton closeModal"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <input
+                  type="submit"
+                  class="btn btn-outline-info btn-lg whiteBgButton"
+                  value="Add customer"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="pos-f-t customNavbar">
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
@@ -52,93 +116,32 @@
                 data-target="#exampleModal"
                 data-whatever="@fat"
               >
-                Add Customer
+                <i class="fas fa-plus customAddIcon"></i> Customer
               </button>
-
-              <!-- Add Customer Modal -->
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel"></h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form class="addCustomerForm">
-                        <div class="form-group">
-                          <label for="customer-name" class="col-form-label"
-                            >Name:</label
-                          >
-                          <input
-                            name="customerName"
-                            type="text"
-                            class="form-control customerName"
-                            id="recipient-name"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label for="customer-contactNo" class="col-form-label"
-                            >Contact No:</label
-                          >
-                          <input
-                            name="customerContactNo"
-                            type="number"
-                            class="form-control customerContactNo"
-                            id="recipient-contact"
-                          />
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-outline-info btn-lg customCloseButton closeModal"
-                            data-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                          <input
-                            type="submit"
-                            class="btn btn-outline-info btn-lg customDoneButton"
-                            value="Add customer"
-                          />
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="customerInvoiceDetails"></div>
             </div>
             <!-- Summary Details -->
-            <div class="shopDetailsSection">
-                <div class="detailsTitle"><h3>SUMMARY</h3></div>
+            <div class="summaryDetailsSection">
+              <div class="detailsTitle"><h3>SUMMARY</h3></div>
+              <div class="summaryAmount"><h3></h3></div>
+              <div class="addItemsOrCheckoutButtons">
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-lg customDoneButton"
+                >
+                  <i class="fas fa-plus customAddIcon"></i>
+                  Item
+                </button>
                 <br />
                 <button
-                type="button"
-                class="btn btn-outline-info btn-lg customDoneButton addCustomerButton"
-              >
-                Add Item
-              </button>
-              <button
-              type="button"
-              class="btn btn-outline-info btn-lg customDoneButton addCustomerButton"
-            >
-              Delete Item
-            </button>
+                  type="button"
+                  class="btn btn-outline-info btn-lg customAddButton"
+                >
+                  <i class="fas fa-check customDoneIcon"></i>
+                  Checkout
+                </button>
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -158,6 +161,13 @@
     </div>
 
     <!-- Billing section -->
+    <div class="startBilling"><button
+      type="button"
+      class="btn btn-outline-info btn-lg customAddButton"
+    >
+      <i class="fas fa-check customDoneIcon"></i>
+      Checkout
+    </button></div>
     <div class="billingSection">
       <table class="table table-sm table-hover">
         <thead class="heading">
@@ -182,285 +192,6 @@
             <td class="monetaryValue">52</td>
           </tr>
           <tr>
-            <td scope="row">2</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">3</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">4</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">5</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">6</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">7</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">8</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">9</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">10</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">11</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">12</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">13</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">14</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">15</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">16</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">1</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">2</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">3</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">4</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">5</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">6</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">7</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">8</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">9</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">10</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">11</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">12</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
-            <td scope="row">13</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td scope="row">14</td>
-            <td>Banana</td>
-            <td>Green</td>
-            <td class="monetaryValue">5</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">50</td>
-          </tr>
-          <tr>
-            <td scope="row">15</td>
-            <td>5 Star</td>
-            <td>10 Rs Pack</td>
-            <td class="monetaryValue">10</td>
-            <td class="monetaryValue">3</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">30</td>
-          </tr>
-          <tr>
-            <td scope="row">16</td>
-            <td>Rice</td>
-            <td>Ponni</td>
-            <td class="monetaryValue">35</td>
-            <td class="monetaryValue">7</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">245</td>
-          </tr>
-          <tr>
             <td></td>
             <td></td>
             <td></td>
@@ -472,31 +203,6 @@
         </tbody>
       </table>
     </div>
-    <!-- Add item and Done button -->
-    <!-- <div class="addAndDoneButtons">
-      <div class="addButton">
-        <button
-          type="button"
-          class="btn btn-outline-info btn-lg customAddButton"
-        >
-          <i class="fas fa-plus customAddIcon"></i>
-        </button>
-      </div>
-      <div class="totalAlert">
-        Amount = Rs 377
-      </div>
-      <div class="totalAlert">
-        Total Items = 16
-      </div>
-      <div class="doneButton">
-        <button
-          type="button"
-          class="btn btn-outline-info btn-lg customDoneButton"
-        >
-          <i class="fas fa-check customDoneIcon"></i>
-        </button>
-      </div>
-    </div> -->
   </body>
   <!-- Bootstrap scripts -->
   <script

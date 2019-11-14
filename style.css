@@ -55,17 +55,13 @@ body {
 .shopAndCustomerDetails {
   display: flex;
   flex-wrap: wrap;
-  /* font-size: var(--billFontSize); */
   justify-content: space-between;
-  padding: 2em;
-  position: relative;
 }
 
 .shopDetailsSection {
   color: white;
   font-family: var(--fontFamily);
   line-height: var(--billFontSize);
-  padding: 0.5em;
 }
 
 .customerDetailsSection {
@@ -73,7 +69,22 @@ body {
   font-family: var(--fontFamily);
   font-weight: bold;
   line-height: var(--billFontSize);
-  padding: 0.5em;
+}
+
+.summaryDetailsSection {
+  color: white;
+  font-family: var(--fontFamily);
+  line-height: var(--billFontSize);
+}
+
+.customerInvoiceDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.addItemsOrCheckoutButtons {
+  display: flex;
+  flex-direction: column;
 }
 
 .detailsTitle {
@@ -116,9 +127,21 @@ body {
   font-size: 1em;
 }
 
+.whiteBgButton {
+  border-color: var(--goldenOrange) !important;
+  color: var(--goldenOrange) !important;
+  transition: 0.3s !important;
+}
+
+.whiteBgButton:hover {
+  background-color: var(--goldenOrange) !important;
+  border-color: var(--goldenOrange) !important;
+  color: white !important;
+}
+
 .customAddButton {
-  border-color: var(--green) !important;
-  color: var(--green) !important;
+  border-color: white !important;
+  color: white !important;
   transition: 0.3s !important;
 }
 
@@ -128,8 +151,8 @@ body {
   color: white !important;
 }
 .customDoneButton {
-  border-color: var(--goldenOrange) !important;
-  color: var(--goldenOrange) !important;
+  border-color: white !important;
+  color: white !important;
   transition: 0.3s !important;
 }
 
@@ -182,13 +205,18 @@ body {
   .shopDetailsSection {
     font-size: 0.75em;
     line-height: var(--billFontSize);
-    padding: 0.5em;
+    /* padding: 0.5em; */
   }
 
   .customerDetailsSection {
     font-size: 0.75em;
     line-height: var(--billFontSize);
-    padding: 0.5em;
+  }
+
+  .summaryDetailsSection {
+    font-size: 0.75em;
+    line-height: var(--billFontSize);
+    /* padding: 0.5em; */
   }
 
   .customAddIcon,

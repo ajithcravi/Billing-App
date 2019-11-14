@@ -38,10 +38,6 @@ $(".addCustomerForm").submit(function(event) {
   Invoice no: ${invoiceNo}<br /> <br />
 </div>
 
-<div class="amountDue">
-  <h4>Amount due: ${amountDue}</h4><br />
-</div>
-
 <div class="updateCustomerButton">
   <button
   type="button"
@@ -53,7 +49,19 @@ $(".addCustomerForm").submit(function(event) {
   Update Customer
 </button>
 </div>`);
+
+  $(".summaryAmount").append(`<div class="amountDue">
+<h4>Amount due: ${amountDue}</h4><br />
+</div>`);
 });
+
+
+
+
+
+
+
+
 
 // Global functions
 // Get tooday's date function
