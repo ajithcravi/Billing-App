@@ -21,9 +21,7 @@ $(".addCustomerForm").submit(function(event) {
   let customerDetails = form.serializeArray();
 
   //Clear input fields of the add customer form
-  $(".clearInput").each(function() {
-    $(this).val("");
-  });
+  clearInput();
   // form.find(".customerContactNo").val("");
   form.find(".closeModal").trigger("click");
 
@@ -113,6 +111,7 @@ $(".addItemForm").submit(function(event) {
     inputItemDetails[2].value,
     tax
   );
+  clearInput();
   console.log(item);
   // total = Math.round(total + item.price);
   let total = 0;
@@ -175,6 +174,11 @@ getDate = () => {
 // @Description           This function is to clear the input boxes
 // @Usage direction       1. Add class 'clearInput' to the input fields to be cleared. 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
+function clearInput() {
+  $(".clearInput").each(function() {
+    $(this).val("");
+  });
+}
 
 class Item {
   constructor(name, category, rate, qty, tax) {
