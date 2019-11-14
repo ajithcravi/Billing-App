@@ -24,9 +24,134 @@
       </div>
     </div>
 
-    <!-- Add Customer Modal -->
+    <!-- NavBar -->
+    <div class="pos-f-t customNavbar">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <!-- Shop and Customer details -->
+          <div class="shopAndCustomerDetails">
+            <!-- Shop Details -->
+            <div class="shopDetailsSection">
+              <div class="detailsTitle"><h3>SHOP</h3></div>
+              <br />
+              <div class="shopMainDetails">
+                AA Stores <br />
+                GSTIN: 27AACCF0683K1ZH
+              </div>
+              123, 5th Main Road, Ejipura, <br />
+              Bangalore, Karnataka - 560 047 <br />
+              9654171823
+            </div>
+            <!-- Customer Details -->
+            <div class="customerDetailsSection">
+              <div class="detailsTitle"><h3>CUSTOMER</h3></div>
+              <br />
+              <button
+                id="+CustomerButton"
+                type="button"
+                class="btn btn-outline-info btn-lg customDoneButton addCustomerButton"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                data-whatever="@fat"
+              >
+                <i class="fas fa-plus customAddIcon"></i> Customer
+              </button>
+              <div class="customerInvoiceDetails"></div>
+            </div>
+            <!-- Summary Details -->
+            <div class="summaryDetailsSection">
+              <div class="detailsTitle"><h3>SUMMARY</h3></div>
+              <div class="summaryAmount"><h3></h3></div>
+              <div class="addItemsOrCheckoutButtons">
+                <button
+                  id="addItemButton"
+                  type="button"
+                  class="btn btn-outline-info btn-lg customDoneButton"
+                  data-toggle="modal"
+                  data-target="#exampleModal1"
+                  data-whatever="@fat"
+                >
+                  <i class="fas fa-plus customAddIcon"></i>
+                  Item
+                </button>
+                <br />
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-lg customAddButton"
+                >
+                  <i class="fas fa-check customDoneIcon"></i>
+                  Checkout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark">
+        <button
+          id="navBarButton"
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Billing section -->
+    <div class="startBilling">
+      <button
+        id="startBillingButton"
+        type="button"
+        class="btn btn-outline-info btn-lg whiteBgButton"
+      >
+        Start Billing
+      </button>
+    </div>
+    <div class="billingSection">
+      <!-- <table id="bill" class="table table-sm table-hover">
+        <thead class="heading">
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Items</th>
+            <th scope="col">Category</th>
+            <th class="monetaryValue" scope="col">Rate</th>
+            <th class="monetaryValue" scope="col">Qty</th>
+            <th class="monetaryValue" scope="col">Tax %</th>
+            <th class="monetaryValue" scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">1</td>
+            <td>Milk</td>
+            <td>500 ml</td>
+            <td class="monetaryValue">26</td>
+            <td class="monetaryValue">2</td>
+            <td class="monetaryValue">0</td>
+            <td class="monetaryValue">52</td>
+          </tr>
+          <tr id="totalRow">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th class="monetaryValue" scope="row">Total</th>
+            <th class="monetaryValue">377</th>
+          </tr>
+        </tbody>
+      </table> -->
+    </div>
+
+    <!--Customer Modal -->
     <div
-      class="modal fade"
+      class="modal fade customerModal"
       id="exampleModal"
       tabindex="-1"
       role="dialog"
@@ -79,7 +204,7 @@
                 <input
                   type="submit"
                   class="btn btn-outline-info btn-lg whiteBgButton"
-                  value="Add customer"
+                  value="Add Customer"
                 />
               </div>
             </form>
@@ -88,124 +213,79 @@
       </div>
     </div>
 
-    <div class="pos-f-t customNavbar">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <!-- Shop and Customer details -->
-          <div class="shopAndCustomerDetails">
-            <!-- Shop Details -->
-            <div class="shopDetailsSection">
-              <div class="detailsTitle"><h3>SHOP</h3></div>
-              <br />
-              <div class="shopMainDetails">
-                AA Stores <br />
-                GSTIN: 27AACCF0683K1ZH
+    <!--Item Modal -->
+    <div
+      class="modal fade itemModal"
+      id="exampleModal1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="addItemForm">
+              <div class="form-group">
+                <label for="customer-name" class="col-form-label">Item:</label>
+                <input
+                  name="customerName"
+                  type="text"
+                  class="form-control customerName"
+                  id="item-name"
+                />
               </div>
-              123, 5th Main Road, Ejipura, <br />
-              Bangalore, Karnataka - 560 047 <br />
-              9654171823
-            </div>
-            <!-- Customer Details -->
-            <div class="customerDetailsSection">
-              <div class="detailsTitle"><h3>CUSTOMER</h3></div>
-              <br />
-              <button
-                id="+CustomerButton"
-                type="button"
-                class="btn btn-outline-info btn-lg customDoneButton addCustomerButton"
-                data-toggle="modal"
-                data-target="#exampleModal"
-                data-whatever="@fat"
-              >
-                <i class="fas fa-plus customAddIcon"></i> Customer
-              </button>
-              <div class="customerInvoiceDetails"></div>
-            </div>
-            <!-- Summary Details -->
-            <div class="summaryDetailsSection">
-              <div class="detailsTitle"><h3>SUMMARY</h3></div>
-              <div class="summaryAmount"><h3></h3></div>
-              <div class="addItemsOrCheckoutButtons">
+              <div class="form-group">
+                <label for="customer-name" class="col-form-label"
+                  >Category:</label
+                >
+                <input
+                  name="customerName"
+                  type="text"
+                  class="form-control customerName"
+                  id="item-category"
+                />
+              </div>
+              <div class="form-group">
+                <label for="customer-contactNo" class="col-form-label"
+                  >Quantity:</label
+                >
+                <input
+                  name="customerContactNo"
+                  type="number"
+                  class="form-control customerContactNo"
+                  id="item-quantity"
+                />
+              </div>
+              <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-outline-info btn-lg customDoneButton"
+                  class="btn btn-outline-info btn-lg customCloseButton closeModal"
+                  data-dismiss="modal"
                 >
-                  <i class="fas fa-plus customAddIcon"></i>
-                  Item
+                  Close
                 </button>
-                <br />
-                <button
-                  type="button"
-                  class="btn btn-outline-info btn-lg customAddButton"
-                >
-                  <i class="fas fa-check customDoneIcon"></i>
-                  Checkout
-                </button>
+                <input
+                  type="submit"
+                  class="btn btn-outline-info btn-lg whiteBgButton"
+                  value="Add Item"
+                />
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <nav class="navbar navbar-dark">
-        <button
-          id="navBarButton"
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
-    </div>
-
-    <!-- Billing section -->
-    <div class="startBilling">
-      <button
-        id="startBillingButton"
-        type="button"
-        class="btn btn-outline-info btn-lg whiteBgButton"
-      >
-        Start Billing
-      </button>
-    </div>
-    <div class="billingSection">
-      <table class="table table-sm table-hover">
-        <thead class="heading">
-          <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Items</th>
-            <th scope="col">Category</th>
-            <th class="monetaryValue" scope="col">Rate</th>
-            <th class="monetaryValue" scope="col">Qty</th>
-            <th class="monetaryValue" scope="col">Tax %</th>
-            <th class="monetaryValue" scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope="row">1</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <th class="monetaryValue" scope="row">Total</th>
-            <th class="monetaryValue">377</th>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </body>
   <!-- Bootstrap scripts -->

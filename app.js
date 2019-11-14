@@ -1,5 +1,12 @@
 // Add customer modal code
-$("#exampleModal").on("show.bs.modal", function(event) {
+$(".customerModal").on("show.bs.modal", function(event) {
+  var button = $(event.relatedTarget); // Button that triggered the modal
+  var modal = $(this);
+  modal.find(".modal-title").text("Customer Details");
+});
+
+// Add item modal code
+$(".itemModal").on("show.bs.modal", function(event) {
   var button = $(event.relatedTarget); // Button that triggered the modal
   var modal = $(this);
   modal.find(".modal-title").text("Customer Details");
@@ -29,7 +36,7 @@ $(".addCustomerForm").submit(function(event) {
   $(".customerDetails").remove();
   $(".amountDue").remove();
   $(".addCustomerButton").remove();
-  $("#startBillingButton").remove();
+  $(".startBilling").remove();
 
   //   Add or update customer details in customer details section
   $(".customerInvoiceDetails").append(`<div class="customerDetails">
@@ -54,13 +61,55 @@ $(".addCustomerForm").submit(function(event) {
   $(".summaryAmount").append(`<div class="amountDue">
 <h4>Amount due: ${amountDue}</h4><br />
 </div>`);
+
+  $(
+    ".billingSection"
+  ).append(`<table id="bill" class="table table-sm table-hover">
+  <thead class="heading">
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Items</th>
+      <th scope="col">Category</th>
+      <th class="monetaryValue" scope="col">Rate</th>
+      <th class="monetaryValue" scope="col">Qty</th>
+      <th class="monetaryValue" scope="col">Tax %</th>
+      <th class="monetaryValue" scope="col">Price</th>
+    </tr>
+  </thead>
+  </table>`);
 });
+
+$("")
 
 $("#startBillingButton").click(() => {
   $("#navBarButton").trigger("click");
 });
 
+$("#addItemButton").on("click", () => {
+  $("#totalRow").remove();
 
+  $("#bill").append(`
+  <tbody>
+  <tr>
+    <td scope="row">1</td>
+    <td>Milk</td>
+    <td>500 ml</td>
+    <td class="monetaryValue">26</td>
+    <td class="monetaryValue">2</td>
+    <td class="monetaryValue">0</td>
+    <td class="monetaryValue">52</td>
+  </tr>
+  <tr id="totalRow">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <th class="monetaryValue" scope="row">Total</th>
+    <th class="monetaryValue">377</th>
+  </tr>
+</tbody>`);
+});
 
 // Global functions
 // Get tooday's date function
