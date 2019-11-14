@@ -191,6 +191,13 @@ body {
   margin-top: 10%;
 }
 
+.itemDeleteButton {
+  font-size: 1em;
+}
+
+.navBarBand {
+  float: right;
+}
 /* media query for max-width 675px */
 @media (max-width: 675px) {
   .logo {

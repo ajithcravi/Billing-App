@@ -62,32 +62,12 @@
             <div class="summaryDetailsSection">
               <div class="detailsTitle"><h3>SUMMARY</h3></div>
               <div class="summaryAmount"><h3></h3></div>
-              <div class="addItemsOrCheckoutButtons">
-                <button
-                  id="addItemButton"
-                  type="button"
-                  class="btn btn-outline-info btn-lg customDoneButton"
-                  data-toggle="modal"
-                  data-target="#exampleModal1"
-                  data-whatever="@fat"
-                >
-                  <i class="fas fa-plus customAddIcon"></i>
-                  Item
-                </button>
-                <br />
-                <button
-                  type="button"
-                  class="btn btn-outline-info btn-lg customAddButton"
-                >
-                  <i class="fas fa-check customDoneIcon"></i>
-                  Checkout
-                </button>
-              </div>
+              <div class="addItemsOrCheckoutButtons"></div>
             </div>
           </div>
         </div>
       </div>
-      <nav class="navbar navbar-dark">
+      <nav class="navbar navbar-dark navBarBand">
         <button
           id="navBarButton"
           class="navbar-toggler"
@@ -112,42 +92,15 @@
       >
         Start Billing
       </button>
+      <!-- <button
+        id="startBillingButton1"
+        type="button"
+        class="btn btn-outline-info btn-lg whiteBgButton"
+      >
+        Stock Management
+      </button> -->
     </div>
-    <div class="billingSection">
-      <!-- <table id="bill" class="table table-sm table-hover">
-        <thead class="heading">
-          <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Items</th>
-            <th scope="col">Category</th>
-            <th class="monetaryValue" scope="col">Rate</th>
-            <th class="monetaryValue" scope="col">Qty</th>
-            <th class="monetaryValue" scope="col">Tax %</th>
-            <th class="monetaryValue" scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td scope="row">1</td>
-            <td>Milk</td>
-            <td>500 ml</td>
-            <td class="monetaryValue">26</td>
-            <td class="monetaryValue">2</td>
-            <td class="monetaryValue">0</td>
-            <td class="monetaryValue">52</td>
-          </tr>
-          <tr id="totalRow">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <th class="monetaryValue" scope="row">Total</th>
-            <th class="monetaryValue">377</th>
-          </tr>
-        </tbody>
-      </table> -->
-    </div>
+    <div class="billingSection"></div>
 
     <!--Customer Modal -->
     <div
@@ -178,7 +131,7 @@
                 <input
                   name="customerName"
                   type="text"
-                  class="form-control customerName"
+                  class="form-control customerName clearInput"
                   id="recipient-name"
                 />
               </div>
@@ -189,7 +142,7 @@
                 <input
                   name="customerContactNo"
                   type="number"
-                  class="form-control customerContactNo"
+                  class="form-control customerContactNo clearInput"
                   id="recipient-contact"
                 />
               </div>
