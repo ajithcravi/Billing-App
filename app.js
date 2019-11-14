@@ -22,8 +22,8 @@ $(".addCustomerForm").submit(function(event) {
 
   //Clear input fields of the add customer form
   clearInput();
-  // form.find(".customerContactNo").val("");
-  form.find(".closeModal").trigger("click");
+  //Close modal
+  closeModal();
 
   //        GET VARIABLES       //
   let invoiceNo = 1561395;
@@ -112,7 +112,7 @@ $(".addItemForm").submit(function(event) {
     tax
   );
   clearInput();
-  console.log(item);
+  closeModal();
   // total = Math.round(total + item.price);
   let total = 0;
 
@@ -178,6 +178,14 @@ function clearInput() {
   $(".clearInput").each(function() {
     $(this).val("");
   });
+}
+
+// @Function name         closeModal
+// @Description           This function is to close the currently opened modal
+// @Usage direction       1. Add class 'closeModal' to the close buttons of the modals. 2. Call the function
+// @Example usage         ***** Mention the line where this function is called *****
+function closeModal() {
+  $(".closeModal").trigger("click");
 }
 
 class Item {
