@@ -120,6 +120,7 @@ $(".addItemForm").submit(function(event) {
   let amountSettled = 0;
   let amountDue = total - amountSettled;
 
+  $(".amountDue").remove();
   $(".summaryAmount").append(`<div class="amountDue">
   <h4>Amount due: ${amountDue}</h4><br />
   </div>`);

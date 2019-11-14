@@ -23,6 +23,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 /* Top band */
@@ -197,6 +198,10 @@ body {
 
 .navBarBand {
   float: right;
+}
+
+.billCard {
+  margin: 2em;
 }
 /* media query for max-width 675px */
 @media (max-width: 675px) {
