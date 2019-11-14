@@ -174,19 +174,19 @@ getDate = () => {
 // @Description           This function is to clear the input boxes
 // @Usage direction       1. Add class 'clearInput' to the input fields to be cleared. 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
-function clearInput() {
+clearInput = () => {
   $(".clearInput").each(function() {
     $(this).val("");
   });
-}
+};
 
 // @Function name         closeModal
 // @Description           This function is to close the currently opened modal
 // @Usage direction       1. Add class 'closeModal' to the close buttons of the modals. 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
-function closeModal() {
+closeModal = () => {
   $(".closeModal").trigger("click");
-}
+};
 
 class Item {
   constructor(name, category, rate, qty, tax) {
