@@ -159,8 +159,12 @@ $("#startBillingButton").click(() => {
   $("#navBarButton").trigger("click");
 });
 
-// Global functions and classes
-// Get tooday's date function
+// Function definitions
+
+// @Function name         getDate
+// @Description           This function is to get the day, month, year and other information about the present day and display it in Date Month Year - Day format
+// @Usage direction       1. Call the function wherever required 2. It returns a value
+// @Example usage         ***** Mention the line where this function is called *****
 getDate = () => {
   const today = new Date();
   const year = today.getFullYear();
@@ -188,6 +192,7 @@ closeModal = () => {
   $(".closeModal").trigger("click");
 };
 
+//Class definitions
 class Item {
   constructor(name, category, rate, qty, tax) {
     this.name = name;
@@ -197,7 +202,7 @@ class Item {
     this.tax = tax;
     this.price =
       Math.round(
-        this.rate * this.qty + (this.tax / 100 + this.rate * this.qty) * 100
+        this.rate * this.qty + (this.tax / 100) * this.rate * this.qty * 100
       ) / 100;
   }
 }
