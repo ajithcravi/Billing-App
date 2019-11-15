@@ -26,14 +26,12 @@ $(".addCustomerForm").submit(function(event) {
   //Close modal
   closeModal();
 
-  console.log($("table").length);
-
   if ($("table").length == false) {
+    //Checking if there is a billing table present
     //   Execute these steps once the form is submitted
     //   Remove previously declared divs if available
     $("#bill").remove();
-    $("#addItemButton").remove();
-    $("#checkoutButton").remove();
+    $(".summaryButtons").remove(); //summaryButtons - remove the buttons with this class
     $(".amountDue").remove();
     $(".addCustomerButton").remove();
     $(".startBilling").remove();
@@ -56,26 +54,7 @@ $(".addCustomerForm").submit(function(event) {
   </thead>
   </table>`);
 
-    $(".addItemsOrCheckoutButtons").append(`<button
-  id="addItemButton"
-  type="button"
-  class="btn btn-outline-info btn-lg customDoneButton"
-  data-toggle="modal"
-  data-target="#exampleModal1"
-  data-whatever="@fat"
->
-  <i class="fas fa-plus customAddIcon"></i>
-  Item
-</button>
-<br />
-<button
-id="checkoutButton"
-  type="button"
-  class="btn btn-outline-info btn-lg customAddButton"
->
-  <i class="fas fa-check customDoneIcon"></i>
-  Checkout
-</button>`);
+    createSummarySectionButtons();
   } else {
     updateCustomerDetails(customerDetails, invoiceNo);
   }
@@ -181,11 +160,12 @@ closeModal = () => {
 
 // @Function name         updateCustomerDetails
 // @Description           This function will add customer details to the customer details section
-// @Usage direction       1. Add class 'customerInvoiceDetails' to the division where the customer details hasto be rendered. 2. Call the function
+// @Usage direction       1. Add class 'customerInvoiceDetails' to the division where the customer details has to be rendered. 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
 updateCustomerDetails = (formDetailsArray, invoiceNo) => {
   $(".updateCustomerButton").remove();
   $(".customerDetails").remove();
+  $("#customerFormSubmitButton").attr("value", "Update Customer");
   const date = getDate();
   $(".customerInvoiceDetails").append(`<div class="customerDetails">
   ${date}<br />
@@ -205,6 +185,38 @@ updateCustomerDetails = (formDetailsArray, invoiceNo) => {
   Update Customer
   </button>
   </div>`);
+};
+// @Function name         createSummarySectionButtons
+// @Description           This function will add three buttons to the summary section 1. Add item button 2. Checkout button 3. Cancel button
+// @Usage direction       1. Call the function
+// @Example usage         ***** Mention the line where this function is called *****
+
+createSummarySectionButtons = () => {
+  $(".addItemsOrCheckoutButtons").append(`<button
+  type="button"
+  class="btn btn-outline-info btn-lg customDoneButton summaryButtons"
+  data-toggle="modal"
+  data-target="#exampleModal1"
+  data-whatever="@fat"
+>
+  <i class="fas fa-plus customAddIcon"></i>
+  Item
+</button>
+<br />
+<button
+  type="button"
+  class="btn btn-outline-info btn-lg customAddButton summaryButtons"
+>
+  <i class="fas fa-check customDoneIcon"></i>
+  Checkout
+</button> <br />
+<button
+  type="button"
+  class="btn btn-outline-danger btn-lg summaryButtons"
+>
+<i class="fas  fa-times"></i>
+  Cancel
+</button>`);
 };
 
 //Class definitions
