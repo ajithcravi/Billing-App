@@ -78,8 +78,7 @@ $(".addItemForm").submit(function(event) {
   </tr>
 </tbody>`);
 
-  let priceColumn = ".priceColumn"; //Declaring to pass it to the function
-  total = sumOfColumn(priceColumn);
+  total = sumOfColumn(".priceColumn", "sum");
 
   updateAmountDue(total);
 
@@ -227,17 +226,25 @@ updateAmountDue = dueValue => {
 };
 
 // @Function name         sumOfColumn
-// @Input arguments       1. Column class name
+// @Input arguments       1. columnClassName : classname of the column in the form of css identifiers 2. request(optional) : sum - to return sum of the colummn or leave it empty to return number of rows
+// @Input arguments type  1. string 2. string
 // @Description           This function will calculate sum of a given column
-// @Usage direction       1. Add any class name to each and every element of the column 2. Call the function passing the class name as input argument
+// @Usage direction       1. Add a class name to each and every element of the column 2. Call the function passing the class name as input argument
 // @Example usage         ***** Mention the line where this function is called *****
-sumOfColumn = columnClassName => {
+sumOfColumn = (columnClassName, request) => {
   let sum = 0;
+  let count = 0;
   $(columnClassName).each(function() {
     let value = parseFloat($(this).html());
     sum += value;
+    count++;
   });
-  return Math.round(sum);
+
+  if (request === "sum") {
+    return Math.round(sum);
+  } else {
+    return count;
+  }
 };
 
 //Class definitions
