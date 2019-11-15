@@ -34,11 +34,9 @@ $(".addCustomerForm").submit(function(event) {
     $("#bill").remove();
     $("#addItemButton").remove();
     $("#checkoutButton").remove();
-    $(".customerDetails").remove();
     $(".amountDue").remove();
     $(".addCustomerButton").remove();
     $(".startBilling").remove();
-    $(".updateCustomerButton").remove();
 
     //   Add customer details in customer details section
     updateCustomerDetails(customerDetails, invoiceNo);
@@ -78,6 +76,8 @@ id="checkoutButton"
   <i class="fas fa-check customDoneIcon"></i>
   Checkout
 </button>`);
+  } else {
+    updateCustomerDetails(customerDetails, invoiceNo);
   }
 });
 
@@ -184,6 +184,8 @@ closeModal = () => {
 // @Usage direction       1. Add class 'customerInvoiceDetails' to the division where the customer details hasto be rendered. 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
 updateCustomerDetails = (formDetailsArray, invoiceNo) => {
+  $(".updateCustomerButton").remove();
+  $(".customerDetails").remove();
   const date = getDate();
   $(".customerInvoiceDetails").append(`<div class="customerDetails">
   ${date}<br />
