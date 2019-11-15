@@ -200,7 +200,6 @@ body {
   float: right;
 }
 
-
 /* media query for max-width 675px */
 @media (max-width: 675px) {
   .logo {

@@ -69,7 +69,7 @@ $(".addItemForm").submit(function(event) {
   <tbody>
   <tr>
     <td scope="row" class="serialNoColumn"></td>
-    <td><span>${item.name}&nbsp;<button type="button" class="btn btn-outline-danger btn-sm"><i class="far fa-trash-alt itemDeleteButton"></i></button></span></td>
+    <td>${item.name}</td>
     <td>${item.category}</td>
     <td class="monetaryValue">${item.rate}</td>
     <td class="monetaryValue">${item.quantity}</td>
@@ -94,6 +94,12 @@ $(".addItemForm").submit(function(event) {
   </tr>`);
 
   updateSerialNo();
+  let totalItems = sumOfColumn(".priceColumn");
+
+  $("#itemsInBill").remove();
+  $("#tableItemsHeader").append(`<p id="itemsInBill">(${totalItems})</p>`);
+  $("#totalAmount").remove();
+  $("#tablePriceHeader").append(`<p id="totalAmount">(${total})</p>`);
 });
 
 $("#startBillingButton").click(() => {
@@ -170,17 +176,6 @@ updateCustomerDetails = (formDetailsArray, invoiceNo) => {
 createSummarySectionButtons = () => {
   $(".addItemsOrCheckoutButtons").append(`<button
   type="button"
-  class="btn btn-outline-info btn-lg customDoneButton summaryButtons"
-  data-toggle="modal"
-  data-target="#exampleModal1"
-  data-whatever="@fat"
->
-  <i class="fas fa-plus customAddIcon"></i>
-  Item
-</button>
-<br />
-<button
-  type="button"
   class="btn btn-outline-info btn-lg customAddButton summaryButtons"
 >
   <i class="fas fa-check customDoneIcon"></i>
@@ -205,12 +200,21 @@ createBillTableHeader = () => {
   <thead class="heading">
     <tr>
       <th scope="col">S.No</th>
-      <th scope="col">Items</th>
+      <th scope="col"><div id="tableItemsHeader"></div><span>Items <button
+      id="tableHeadAddItemButton"
+      type="button"
+      class="btn btn-outline-info btn-sm summaryButtons whiteBgButton"
+      data-toggle="modal"
+      data-target="#exampleModal1"
+      data-whatever="@fat"
+    >
+      <i class="fas fa-plus itemAddButton customAddIcon"></i>
+    </button></span></th>
       <th scope="col">Category</th>
       <th class="monetaryValue" scope="col">Rate</th>
       <th class="monetaryValue" scope="col">Qty</th>
       <th class="monetaryValue" scope="col">Tax %</th>
-      <th class="monetaryValue" scope="col" value=0>Price</th>
+      <th class="monetaryValue" scope="col" value=0><div id="tablePriceHeader"></div><span>Price</span></th>
     </tr>
   </thead>
   </table>`);

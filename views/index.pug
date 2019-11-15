@@ -56,18 +56,19 @@ html(lang='en')
         button#navBarButton.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
     // Billing section
-    .startBilling
-      button#startBillingButton.btn.btn-outline-info.btn-lg.whiteBgButton(type='button')
-        | Start Billing
-      //
-        <button
-        id="startBillingButton1"
-        type="button"
-        class="btn btn-outline-info btn-lg whiteBgButton"
-        >
-        Stock Management
-        </button>
-    .billingSection
+    div(data-spy='scroll')
+      .startBilling
+        button#startBillingButton.btn.btn-outline-info.btn-lg.whiteBgButton(type='button')
+          | Start Billing
+        //
+          <button
+          id="startBillingButton1"
+          type="button"
+          class="btn btn-outline-info btn-lg whiteBgButton"
+          >
+          Stock Management
+          </button>
+      .billingSection
     // Customer Modal
     #exampleModal.modal.fade.customerModal(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
       .modal-dialog.modal-dialog-centered(role='document')
