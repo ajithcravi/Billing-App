@@ -39,20 +39,8 @@ $(".addCustomerForm").submit(function(event) {
     //   Add customer details in customer details section
     updateCustomerDetails(customerDetails, invoiceNo);
 
-    $(".billingSection")
-      .append(`<table id="bill" class="table table-sm table-hover">
-  <thead class="heading">
-    <tr>
-      <th scope="col">S.No</th>
-      <th scope="col">Items</th>
-      <th scope="col">Category</th>
-      <th class="monetaryValue" scope="col">Rate</th>
-      <th class="monetaryValue" scope="col">Qty</th>
-      <th class="monetaryValue" scope="col">Tax %</th>
-      <th class="monetaryValue" scope="col" value=0>Price</th>
-    </tr>
-  </thead>
-  </table>`);
+    //Add bill table header
+    createBillTableHeader();
 
     createSummarySectionButtons();
   } else {
@@ -186,11 +174,11 @@ updateCustomerDetails = (formDetailsArray, invoiceNo) => {
   </button>
   </div>`);
 };
+
 // @Function name         createSummarySectionButtons
 // @Description           This function will add three buttons to the summary section 1. Add item button 2. Checkout button 3. Cancel button
-// @Usage direction       1. Call the function
+// @Usage direction       1. Add class 'addItemsOrCheckoutButtons' to the division where the buttons has to be rendered 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
-
 createSummarySectionButtons = () => {
   $(".addItemsOrCheckoutButtons").append(`<button
   type="button"
@@ -217,6 +205,27 @@ createSummarySectionButtons = () => {
 <i class="fas  fa-times"></i>
   Cancel
 </button>`);
+};
+
+// @Function name         createSummarySectionButtons
+// @Description           This function will add three buttons to the summary section 1. Add item button 2. Checkout button 3. Cancel button
+// @Usage direction       1. Add class 'addItemsOrCheckoutButtons' to the division where the buttons has to be rendered 2. Call the function
+// @Example usage         ***** Mention the line where this function is called *****
+createBillTableHeader = () => {
+  $(".billingSection")
+    .append(`<table id="bill" class="table table-sm table-hover">
+  <thead class="heading">
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Items</th>
+      <th scope="col">Category</th>
+      <th class="monetaryValue" scope="col">Rate</th>
+      <th class="monetaryValue" scope="col">Qty</th>
+      <th class="monetaryValue" scope="col">Tax %</th>
+      <th class="monetaryValue" scope="col" value=0>Price</th>
+    </tr>
+  </thead>
+  </table>`);
 };
 
 //Class definitions
