@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ajithcravi/Billing-App/issues"
   },
-  "homepage": "https://github.com/ajithcravi/Billing-App#readme"
+  "homepage": "https://github.com/ajithcravi/Billing-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
