@@ -1,0 +1,118 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Invoice
+    link(rel='stylesheet', href='style.css')
+    // Bootstrap css
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+    // Font Awesome script
+    script(src='https://kit.fontawesome.com/e1e8e053d6.js', crossorigin='anonymous')
+  body
+    // Header
+    .topContainer
+      div IPREDICT
+      div
+        img.logo(src='./images/iPredictLogo.png', alt='iPredictLogo')
+    // NavBar
+    .pos-f-t.customNavbar
+      #navbarToggleExternalContent.collapse
+        .bg-dark.p-4
+          // Shop and Customer details
+          .shopAndCustomerDetails
+            // Shop Details
+            .shopDetailsSection
+              .detailsTitle
+                h3 SHOP
+              br
+              .shopMainDetails
+                | AA Stores 
+                br
+                |                 GSTIN: 27AACCF0683K1ZH
+              |               123, 5th Main Road, Ejipura, 
+              br
+              |               Bangalore, Karnataka - 560 047 
+              br
+              |               9654171823
+            // Customer Details
+            .customerDetailsSection
+              .detailsTitle
+                h3 CUSTOMER
+              br
+              button.btn.btn-outline-info.btn-lg.customDoneButton.addCustomerButton(id='+CustomerButton', type='button', data-toggle='modal', data-target='#exampleModal', data-whatever='@fat')
+                i.fas.fa-plus.customAddIcon
+                |  Customer
+              .customerInvoiceDetails
+            // Summary Details
+            .summaryDetailsSection
+              .detailsTitle
+                h3 SUMMARY
+              .summaryAmount
+                h3
+              .addItemsOrCheckoutButtons
+      nav.navbar.navbar-dark.navBarBand
+        button#navBarButton.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+    // Billing section
+    .startBilling
+      button#startBillingButton.btn.btn-outline-info.btn-lg.whiteBgButton(type='button')
+        | Start Billing
+      //
+        <button
+        id="startBillingButton1"
+        type="button"
+        class="btn btn-outline-info btn-lg whiteBgButton"
+        >
+        Stock Management
+        </button>
+    .billingSection
+    // Customer Modal
+    #exampleModal.modal.fade.customerModal(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form.addCustomerForm
+              .form-group
+                label.col-form-label(for='customer-name') Name:
+                input#recipient-name.form-control.customerName.clearInput(name='customerName', type='text')
+              .form-group
+                label.col-form-label(for='customer-contactNo') Contact No:
+                input#recipient-contact.form-control.customerContactNo.clearInput(name='customerContactNo', type='number')
+              .modal-footer
+                button.btn.btn-outline-info.btn-lg.customCloseButton.closeModal(type='button', data-dismiss='modal')
+                  | Close
+                input#customerFormSubmitButton.btn.btn-outline-info.btn-lg.whiteBgButton(type='submit', value='Add Customer')
+    // Item Modal
+    #exampleModal1.modal.fade.itemModal(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form.addItemForm
+              .form-group
+                label.col-form-label(for='customer-name') Item:
+                input#item-name.form-control.customerName.clearInput(name='itemName', type='text')
+              .form-group
+                label.col-form-label(for='customer-name') Category:
+                input#item-category.form-control.customerName.clearInput(name='itemCategory', type='text')
+              .form-group
+                label.col-form-label(for='customer-contactNo') Quantity:
+                input#item-quantity.form-control.customerContactNo.clearInput(name='itemQuantity', type='number')
+              .modal-footer
+                button.btn.btn-outline-info.btn-lg.customCloseButton.closeModal(type='button', data-dismiss='modal')
+                  | Close
+                input.btn.btn-outline-info.btn-lg.whiteBgButton(type='submit', value='Add Item')
+    // Bootstrap scripts
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy', crossorigin='anonymous')
+    script(src='./app.js')

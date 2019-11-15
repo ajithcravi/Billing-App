@@ -1,0 +1,292 @@
+/* Root variables */
+:root {
+  --billFontSize: 1.5em;
+  --paddingAndMargin: 2em;
+  --green: #3c8c30;
+  --darkGrey: #303030;
+  --goldenOrange: #d96704;
+  --fontFamily: sans-serif;
+}
+
+/* fixing 100% width and height to the document */
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.customNavbar {
+  background-color: var(--darkGrey);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* Top band */
+/* logo */
+.logo {
+  height: var(--billFontSize);
+  margin-right: var(--paddingAndMargin);
+}
+/* Band overall style */
+.topContainer {
+  align-items: center;
+  background-color: var(--darkGrey);
+  color: white;
+  display: flex;
+  flex-flow: row;
+  font-family: var(--fontFamily);
+  font-size: 3em;
+  justify-content: space-between;
+  letter-spacing: 0.25em;
+  padding: 0.5em;
+  position: -webkit-stickys;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: +1;
+}
+
+/* Shop and customer details section */
+.shopAndCustomerDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shopDetailsSection {
+  color: white;
+  font-family: var(--fontFamily);
+  line-height: var(--billFontSize);
+}
+
+.customerDetailsSection {
+  color: white;
+  font-family: var(--fontFamily);
+  font-weight: bold;
+  line-height: var(--billFontSize);
+}
+
+.summaryDetailsSection {
+  color: white;
+  font-family: var(--fontFamily);
+  line-height: var(--billFontSize);
+}
+
+.customerInvoiceDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.addItemsOrCheckoutButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsTitle {
+  color: #c5c5c5;
+  font-weight: normal;
+}
+
+.shopMainDetails {
+  font-weight: bolder;
+}
+
+/* Billing table */
+.billingSection {
+  /* font-size: var(--billFontSize); */
+  padding: var(--paddingAndMargin);
+  padding-bottom: 3em;
+}
+
+/* This is to right align monetary values in the table */
+.monetaryValue {
+  text-align: right;
+}
+
+/* Add and Done buttons */
+.addAndDoneButtons {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  padding-left: var(--paddingAndMargin);
+  padding-right: var(--paddingAndMargin);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.customAddIcon,
+.customDoneIcon {
+  font-size: 1em;
+}
+
+.whiteBgButton {
+  border-color: var(--goldenOrange) !important;
+  color: var(--goldenOrange) !important;
+  transition: 0.3s !important;
+}
+
+.whiteBgButton:hover {
+  background-color: var(--goldenOrange) !important;
+  border-color: var(--goldenOrange) !important;
+  color: white !important;
+}
+
+.customAddButton {
+  border-color: white !important;
+  color: white !important;
+  transition: 0.3s !important;
+}
+
+.customAddButton:hover {
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+  color: white !important;
+}
+.customDoneButton {
+  border-color: white !important;
+  color: white !important;
+  transition: 0.3s !important;
+}
+
+.customDoneButton:hover {
+  background-color: var(--goldenOrange) !important;
+  border-color: var(--goldenOrange) !important;
+  color: white !important;
+}
+
+.customCloseButton {
+  border-color: var(--darkGrey) !important;
+  color: var(--darkGrey) !important;
+  transition: 0.3s !important;
+}
+
+.customCloseButton:hover {
+  background-color: var(--darkGrey) !important;
+  border-color: var(--darkGrey) !important;
+  color: white !important;
+}
+
+.totalAlert {
+  background-color: white;
+  border: 0.1em solid var(--darkGrey);
+  border-radius: 0.25em;
+  color: var(--darkGrey);
+  font-family: sans-serif;
+  /* font-size: var(--billFontSize); */
+  padding: 0.5em;
+}
+
+.startBilling {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.itemDeleteButton {
+  font-size: 1em;
+}
+
+.navBarBand {
+  float: right;
+}
+
+
+/* media query for max-width 675px */
+@media (max-width: 675px) {
+  .logo {
+    height: var(--billFontSize);
+    margin-right: 1em;
+  }
+
+  .topContainer {
+    font-size: var(--billFontSize);
+    letter-spacing: 0.125em;
+    padding: 0.25em;
+  }
+
+  .shopAndCustomerDetails {
+    font-size: 1em;
+    margin: 1em;
+  }
+
+  .shopDetailsSection {
+    font-size: 0.75em;
+    line-height: var(--billFontSize);
+    /* padding: 0.5em; */
+  }
+
+  .customerDetailsSection {
+    font-size: 0.75em;
+    line-height: var(--billFontSize);
+  }
+
+  .summaryDetailsSection {
+    font-size: 0.75em;
+    line-height: var(--billFontSize);
+    /* padding: 0.5em; */
+  }
+
+  .customAddIcon,
+  .customDoneIcon {
+    font-size: 0.5em;
+    margin: 0;
+  }
+
+  .detailsTitle {
+    font-size: 1em;
+  }
+
+  .startBilling {
+    margin-top: 25%;
+  }
+
+  .billingSection {
+    font-size: 0.75em;
+    padding: 1em;
+  }
+
+  .totalAlert {
+    border-radius: 0.25em;
+    font-size: 0.75em;
+    padding: 0.5em;
+  }
+}
+
+/* media query for print */
+@media print {
+  .topContainer {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .addAndDoneButtons {
+    display: none;
+  }
+
+  .billingSection {
+    padding-bottom: 0;
+  }
+
+  .startBilling {
+    display: none;
+  }
+}
+
+/* Turn off spinners for number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
