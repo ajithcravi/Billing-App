@@ -21,42 +21,40 @@ $(".addCustomerForm").submit(function(event) {
   //        GET VARIABLES       //
   let invoiceNo = 1561395;
 
-  //Clear input fields of the add customer form
-  clearInput();
-  //Close modal
-  closeModal();
+  clearInput(); //Clear input fields of the add customer form
+  closeModal(); //Close modal
 
   if ($("table").length == false) {
-    //Checking if there is a billing table present
-    //   Execute these steps once the form is submitted
-    //   Remove previously declared divs if available
-    $("#bill").remove();
-    $(".summaryButtons").remove(); //summaryButtons - remove the buttons with this class
-    $(".amountDue").remove();
-    $(".addCustomerButton").remove();
-    $(".startBilling").remove();
+    //Check if there is a billing table present and execute the following steps (This is to check if the billing has already begun or not)
 
-    //   Add customer details in customer details section
-    updateCustomerDetails(customerDetails, invoiceNo);
+    $(".addCustomerButton").remove(); //Remove 'Add Customer' button
+    $(".startBilling").remove(); //Remove 'Start Billing' button
 
-    //Add bill table header
-    createBillTableHeader();
+    updateCustomerDetails(customerDetails, invoiceNo); //Add customer details in customer details section
 
-    createSummarySectionButtons();
+    createBillTableHeader(); //Add bill table header
+
+    createSummarySectionButtons(); //Create buttons in the summary section
   } else {
-    updateCustomerDetails(customerDetails, invoiceNo);
+    updateCustomerDetails(customerDetails, invoiceNo); //Update customer details in the customer section
   }
 });
 
 $(".addItemForm").submit(function(event) {
-  let itemForm = $(this);
   event.preventDefault();
-  let rate = 33;
-  let tax = 18;
 
   //        POST VARIABLES       //
-  let inputItemDetails = itemForm.serializeArray();
+  let inputItemDetails = $(this).serializeArray();
   console.log(inputItemDetails);
+
+  //        GET VARIABLES       //
+  let rate = 33;
+  let tax = 18;
+  
+  //        CALCULATION VARIABLES       //
+  let total = 0;
+  let amountSettled = 0;
+  let amountDue = Math.round(total - amountSettled);
 
   let item = new Item(
     inputItemDetails[0].value,
@@ -67,11 +65,8 @@ $(".addItemForm").submit(function(event) {
   );
   clearInput();
   closeModal();
-  // total = Math.round(total + item.price);
-  let total = 0;
 
-  let amountSettled = 0;
-  let amountDue = total - amountSettled;
+  
 
   $(".amountDue").remove();
   $(".summaryAmount").append(`<div class="amountDue">
