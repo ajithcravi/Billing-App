@@ -207,9 +207,9 @@ createSummarySectionButtons = () => {
 </button>`);
 };
 
-// @Function name         createSummarySectionButtons
-// @Description           This function will add three buttons to the summary section 1. Add item button 2. Checkout button 3. Cancel button
-// @Usage direction       1. Add class 'addItemsOrCheckoutButtons' to the division where the buttons has to be rendered 2. Call the function
+// @Function name         createBillTableHeader
+// @Description           This function will create bill table header to the billing section
+// @Usage direction       1. Add class 'billingSection' to the division where the bill has to be rendered 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
 createBillTableHeader = () => {
   $(".billingSection")
