@@ -50,7 +50,7 @@ $(".addItemForm").submit(function(event) {
   //        GET VARIABLES       //
   let rate = 33;
   let tax = 18;
-  
+
   //        CALCULATION VARIABLES       //
   let total = 0;
   let amountSettled = 0;
@@ -66,12 +66,7 @@ $(".addItemForm").submit(function(event) {
   clearInput();
   closeModal();
 
-  
-
-  $(".amountDue").remove();
-  $(".summaryAmount").append(`<div class="amountDue">
-  <h4>Amount due: ${amountDue}</h4><br />
-  </div>`);
+  updateAmountDue(amountDue);
 
   $("#totalRow").remove();
   $("#bill").append(`
@@ -81,7 +76,7 @@ $(".addItemForm").submit(function(event) {
     <td><span>${item.name}&nbsp;<button type="button" class="btn btn-outline-danger btn-sm"><i class="far fa-trash-alt itemDeleteButton"></i></button></span></td>
     <td>${item.category}</td>
     <td class="monetaryValue">${item.rate}</td>
-    <td class="monetaryValue">${item.qty}</td>
+    <td class="monetaryValue">${item.quantity}</td>
     <td class="monetaryValue">${item.tax}</td>
     <td class="monetaryValue priceRow">${item.price}</td>
   </tr>
@@ -223,17 +218,29 @@ createBillTableHeader = () => {
   </table>`);
 };
 
+// @Function name         updateAmountDue
+// @Description           This function will update the amount due in the summary section
+// @Usage direction       1. Add class 'billingSection' to the division where the bill has to be rendered 2. Call the function
+// @Example usage         ***** Mention the line where this function is called *****
+updateAmountDue = dueValue => {
+  $(".amountDue").remove(); //Remove the preexisting due value
+  $(".summaryAmount").append(`<div class="amountDue">
+<h4>Amount due: ${dueValue}</h4><br />
+</div>`);
+};
+
 //Class definitions
 class Item {
-  constructor(name, category, rate, qty, tax) {
+  constructor(name, category, rate, quantity, tax) {
     this.name = name;
     this.category = category;
     this.rate = rate;
-    this.qty = qty;
+    this.quantity = quantity;
     this.tax = tax;
     this.price =
       Math.round(
-        this.rate * this.qty + (this.tax / 100) * this.rate * this.qty * 100
+        this.rate * this.quantity +
+          (this.tax / 100) * this.rate * this.quantity * 100
       ) / 100;
   }
 }
