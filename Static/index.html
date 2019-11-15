@@ -132,7 +132,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form class="addCustomerForm">
+            <form class="addCustomerForm" action="/" method="POST">
               <div class="form-group">
                 <label for="customer-name" class="col-form-label">Name:</label>
                 <input
@@ -197,14 +197,14 @@
             </button>
           </div>
           <div class="modal-body">
-            <form class="addItemForm">
+            <form class="addItemForm" action="/" method="POST">
               <div class="form-group">
                 <label for="customer-name" class="col-form-label">Item:</label>
                 <input
+                id="item-name"
                   name="itemName"
                   type="text"
                   class="form-control customerName clearInput"
-                  id="item-name"
                 />
               </div>
               <div class="form-group">
@@ -212,10 +212,10 @@
                   >Category:</label
                 >
                 <input
+                id="item-category"
                   name="itemCategory"
                   type="text"
                   class="form-control customerName clearInput"
-                  id="item-category"
                 />
               </div>
               <div class="form-group">
