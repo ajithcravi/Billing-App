@@ -200,9 +200,7 @@ body {
   float: right;
 }
 
-.billCard {
-  margin: 2em;
-}
+
 /* media query for max-width 675px */
 @media (max-width: 675px) {
   .logo {
