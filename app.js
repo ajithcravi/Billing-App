@@ -53,8 +53,6 @@ $(".addItemForm").submit(function(event) {
 
   //        CALCULATION VARIABLES       //
   let total = 0;
-  let amountSettled = 0;
-  let amountDue = Math.round(total - amountSettled);
 
   let item = new Item(
     inputItemDetails[0].value,
@@ -66,8 +64,6 @@ $(".addItemForm").submit(function(event) {
   clearInput();
   closeModal();
 
-  updateAmountDue(amountDue);
-
   $("#totalRow").remove();
   $("#bill").append(`
   <tbody>
@@ -78,14 +74,14 @@ $(".addItemForm").submit(function(event) {
     <td class="monetaryValue">${item.rate}</td>
     <td class="monetaryValue">${item.quantity}</td>
     <td class="monetaryValue">${item.tax}</td>
-    <td class="monetaryValue priceRow">${item.price}</td>
+    <td class="monetaryValue priceColumn">${item.price}</td>
   </tr>
 </tbody>`);
 
-  $(".priceRow").each(function() {
-    let value = parseInt($(this).html());
-    total += value;
-  });
+  let priceColumn = ".priceColumn"; //Declaring to pass it to the function
+  total = sumOfColumn(priceColumn);
+
+  updateAmountDue(total);
 
   $("#bill").append(`
   <tr id="totalRow">
@@ -137,6 +133,7 @@ closeModal = () => {
 };
 
 // @Function name         updateCustomerDetails
+// @Input Arguments       1. Array containing the input data from the form 2. Invoice number
 // @Description           This function will add customer details to the customer details section
 // @Usage direction       1. Add class 'customerInvoiceDetails' to the division where the customer details has to be rendered. 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
@@ -220,13 +217,27 @@ createBillTableHeader = () => {
 
 // @Function name         updateAmountDue
 // @Description           This function will update the amount due in the summary section
-// @Usage direction       1. Add class 'billingSection' to the division where the bill has to be rendered 2. Call the function
+// @Usage direction       1. Add class '.summaryAmount' to the division where the amount has to be rendered 2. Call the function
 // @Example usage         ***** Mention the line where this function is called *****
 updateAmountDue = dueValue => {
   $(".amountDue").remove(); //Remove the preexisting due value
   $(".summaryAmount").append(`<div class="amountDue">
 <h4>Amount due: ${dueValue}</h4><br />
 </div>`);
+};
+
+// @Function name         sumOfColumn
+// @Input arguments       1. Column class name
+// @Description           This function will calculate sum of a given column
+// @Usage direction       1. Add any class name to each and every element of the column 2. Call the function passing the class name as input argument
+// @Example usage         ***** Mention the line where this function is called *****
+sumOfColumn = columnClassName => {
+  let sum = 0;
+  $(columnClassName).each(function() {
+    let value = parseFloat($(this).html());
+    sum += value;
+  });
+  return Math.round(sum);
 };
 
 //Class definitions
@@ -239,8 +250,9 @@ class Item {
     this.tax = tax;
     this.price =
       Math.round(
-        this.rate * this.quantity +
-          (this.tax / 100) * this.rate * this.quantity * 100
+        (this.rate * this.quantity +
+          (this.tax / 100) * this.rate * this.quantity) *
+          100
       ) / 100;
   }
 }
