@@ -68,7 +68,7 @@ $(".addItemForm").submit(function(event) {
   $("#bill").append(`
   <tbody>
   <tr>
-    <td scope="row">${item.sNo}</td>
+    <td scope="row" class="serialNoColumn"></td>
     <td><span>${item.name}&nbsp;<button type="button" class="btn btn-outline-danger btn-sm"><i class="far fa-trash-alt itemDeleteButton"></i></button></span></td>
     <td>${item.category}</td>
     <td class="monetaryValue">${item.rate}</td>
@@ -92,6 +92,8 @@ $(".addItemForm").submit(function(event) {
     <th class="monetaryValue" scope="row">Total</th>
     <th class="monetaryValue">${total}</th>
   </tr>`);
+
+  updateSerialNo();
 });
 
 $("#startBillingButton").click(() => {
@@ -245,6 +247,20 @@ sumOfColumn = (columnClassName, request) => {
   } else {
     return count;
   }
+};
+
+// @Function name         updateSerialNo
+// @Description           This function will update the serial number a given column
+// @Usage direction       1. Add a class name to each and every element of the column 2. Call the function passing the class name as input argument
+// @Example usage         ***** Mention the line where this function is called *****
+updateSerialNo = () => {
+  $(".serialNumber").remove();
+  let count = 0;
+  $(".serialNoColumn").each(function() {
+    count++;
+    console.log(count);
+    $(this).append(`<p class="serialNumber">${count}</p>`);
+  });
 };
 
 //Class definitions
